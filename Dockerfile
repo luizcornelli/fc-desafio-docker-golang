@@ -8,5 +8,5 @@ FROM scratch
 WORKDIR /
 COPY --from=build /app/desafio /desafio
 
-EXPOSE 8081  # A porta que seu app Go realmente usa
+EXPOSE 8081
 ENTRYPOINT [ "/desafio" ]
