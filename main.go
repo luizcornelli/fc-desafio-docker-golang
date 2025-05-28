@@ -12,8 +12,7 @@ func main() {
     // Configurar o servidor HTTP em uma goroutine
     go func() {
         http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-            w.Header().Set("Content-Type", "text/html")
-            fmt.Fprintf(w, "<h1>Full Cycle Rocks!!</h1>")
+            fmt.Fprint(w, "Full Cycle Rocks!!")
         })
         
         http.ListenAndServe(":8081", nil)
