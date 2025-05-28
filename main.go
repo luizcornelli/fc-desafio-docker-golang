@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"net/http"
 )
 
 func main() {
-	fmt.Println("Full Cycle Rocks!!")
-	
-	// Mantém o container rodando
-	for {
-		time.Sleep(1 * time.Hour) // Mantém o processo ativo
-	}
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintln(w, "Full Cycle Rocks!!")
+	})
+
+	fmt.Println("Server running on port 8081")
+	http.ListenAndServe(":8081", nil)
 }
