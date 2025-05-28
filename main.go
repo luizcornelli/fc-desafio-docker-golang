@@ -1,16 +1,15 @@
 package main
 
 import (
-    "fmt"
-    "net/http"
+	"fmt"
+	"time"
 )
 
 func main() {
-    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        w.Header().Set("Content-Type", "text/html")
-        fmt.Fprintf(w, "<h1>Full Cycle Rocks!!</h1>")
-    })
-    
-    fmt.Println("Server starting on port 8081...")
-    http.ListenAndServe(":8081", nil)
+	fmt.Println("Full Cycle Rocks!!")
+	
+	// Mantém o container rodando
+	for {
+		time.Sleep(1 * time.Hour) // Mantém o processo ativo
+	}
 }
